@@ -127,7 +127,7 @@ def main():
     args = parser.parse_args()
 
     program_dir = os.path.dirname(os.path.abspath(__file__))     
-    output_folder = os.path.join(program_dir, 'vcf_analysis_results')       #the output folder will be saved in the same folder as UChicago_Aishwarya_Mahale.py file
+    output_folder = os.path.join(program_dir, 'vcf_analysis_results')       #the output folder will be saved in the same folder as script.py file
     os.makedirs(output_folder, exist_ok = True)
     output_file = os.path.join(output_folder, 'vcf_analysis_output.txt')
 
