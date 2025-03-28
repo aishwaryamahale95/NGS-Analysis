@@ -113,9 +113,9 @@ def supported_variants(lines, output_file):
     if variant:
         output_file.write(f"Variants supported only by less than 15% of the reads:\n")
         #print("Variants supported only by less than 15% of the reads:")
-        for line in variant:
-            output_file.write(f"line")
-            #print(line)
+        for var in variant:
+            output_file.write(f"{var}\n")
+            #print(f"{var}\n")
     else:
         output_file.write(f"No variants supported by less than 15% of the reads found.\n")
         #print("No variants supported by less than 15% of the reads found.")
