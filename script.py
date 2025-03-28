@@ -74,26 +74,51 @@ def variants_per_chromosome(lines, output_file):
 
 #2 Genotype with the largest indel in the VCF file
 def largest_indel(lines, output_file):
+    largest = {
+        'size': 0,
+        'chrom': None,
+        'pos': None,
+        'ref': None,
+        'alt': None,
+        'genotype': None
+    }
 
-    largest_indel_size = 0
-    largest_indel = None
-
-    #Iterate through each line and add the alleles from the REF and ALT columns respectively 
     for line in lines:
-        ref = line.REF
-        alt = line.ALT 
-        if len(ref) != len(alt):  # This means that indels are present
-            indel_size = abs(len(ref) - len(str(alt)))
-            if indel_size > largest_indel_size:     #check if the indel size is larger than the largest indel size
-                largest_indel_size = indel_size
-                largest_indel = line.samples[0].data.GT     #update the genotype for the largest indel 
-                
-    if largest_indel:
-        output_file.write(f"Genotype of the largest indel: {largest_indel}\n")
-        #print(f"Genotype of the largest indel: {largest_indel}")
+        # Skip non-indel variants
+        if not line.is_indel:
+            continue
+            
+        ref_len = len(line.REF)
+        
+        # Process all alternate alleles
+        for alt_allele in line.ALT:
+            alt_str = str(alt_allele)
+            alt_len = len(alt_str)
+            size_diff = abs(ref_len - alt_len)
+            
+            if size_diff > largest['size']:
+                largest.update({
+                    'size': size_diff,
+                    'chrom': line.CHROM,
+                    'pos': line.POS,
+                    'ref': line.REF,
+                    'alt': alt_str,
+                    'genotype': line.samples[0].data.GT
+                })
+
+    # Generate output
+    if largest['size'] > 0:
+        output_file.write(
+            "\nLARGEST INDEL FOUND:\n"
+            f"Chromosome: {largest['chrom']}\n"
+            f"Position: {largest['pos']}\n"
+            f"Reference: {largest['ref']} (length: {len(largest['ref'])}bp)\n"
+            f"Alternate: {largest['alt']} (length: {len(largest['alt'])}bp)\n"
+            f"Size difference: {largest['size']}bp\n"
+            f"Genotype: {largest['genotype']}\n"
+        )
     else:
-        output_file.write(f"No indels found in the VCF file.\n")
-        #print("No indels found in the VCF file.")
+        output_file.write("\nNo indels found in the VCF file.\n")
 
 #3 Output variants that are supported only by <15% of the reads
 #Define a function to calculate percentage of reads supporting ALT allele
