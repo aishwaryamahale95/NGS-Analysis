@@ -128,11 +128,12 @@ def supported_variants(lines, output_file):
     for line in lines:
         for sample in line.samples:
             if sample['DP'] > 0:  #check if there is coverage (read depth > 0)
-                #print(sample['DP'])
-                alt_alleles = sample['AD'][1] #since the AD[1] refers to the alternate alleles
-                total_reads = sample['DP'] 
-                if alt_alleles / total_reads < 0.15:
-                    variant.append(line)
+                total_reads = sample['DP']
+                # Check all alternate alleles (AD[1:])
+                for alt_count in sample['AD'][1:]:
+                    if alt_count / total_reads < 0.15:
+                        variants.append(line)
+                        break 
 
     #check for variants with less than 15% reads
     if variant:

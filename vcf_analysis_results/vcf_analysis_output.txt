@@ -1,0 +1,78 @@
+Total number of variants per chromosome:
+Chromosome 1: 7
+Chromosome 2: 26
+Chromosome 3: 2
+Chromosome 4: 15
+Chromosome 5: 13
+Chromosome 6: 13
+Chromosome 7: 5
+Chromosome 8: 9
+Chromosome 9: 15
+Chromosome 10: 4
+Chromosome 11: 11
+Chromosome 12: 6
+Chromosome 14: 1
+Chromosome 15: 12
+Chromosome 16: 9
+Chromosome 17: 9
+Chromosome 18: 3
+Chromosome 19: 7
+Chromosome 20: 2
+Chromosome 21: 34
+Chromosome 22: 6
+Chromosome X: 26
+Heterozygous counts per chromosome:
+Chromosome 1: 5
+Chromosome 2: 21
+Chromosome 3: 1
+Chromosome 4: 11
+Chromosome 5: 8
+Chromosome 6: 11
+Chromosome 7: 5
+Chromosome 8: 7
+Chromosome 9: 7
+Chromosome 10: 2
+Chromosome 11: 7
+Chromosome 12: 6
+Chromosome 14: 1
+Chromosome 15: 11
+Chromosome 16: 7
+Chromosome 17: 4
+Chromosome 18: 1
+Chromosome 19: 7
+Chromosome 20: 1
+Chromosome 21: 32
+Chromosome 22: 3
+Chromosome X: 1
+Homozygous counts per chromosome:
+Chromosome 1: 2
+Chromosome 2: 5
+Chromosome 3: 1
+Chromosome 4: 4
+Chromosome 5: 5
+Chromosome 6: 2
+Chromosome 7: 0
+Chromosome 8: 2
+Chromosome 9: 8
+Chromosome 10: 2
+Chromosome 11: 4
+Chromosome 12: 0
+Chromosome 14: 0
+Chromosome 15: 1
+Chromosome 16: 2
+Chromosome 17: 5
+Chromosome 18: 2
+Chromosome 19: 0
+Chromosome 20: 1
+Chromosome 21: 2
+Chromosome 22: 3
+Chromosome X: 25
+
+LARGEST INDEL FOUND:
+Chromosome: 8
+Position: 141445349
+Reference: AAGAAAACAAAAAACAAAAACC (length: 22bp)
+Alternate: A (length: 1bp)
+Size difference: 21bp
+Genotype: 0/1
+No variants supported by less than 15% of the reads found.
